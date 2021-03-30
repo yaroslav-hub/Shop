@@ -8,13 +8,13 @@ namespace ShopLib
 {
     public class GroceryShop : IShop
     {
-        private List<IDiscount> _definedDiscounts;
+        private List<ItemDiscount> _definedDiscounts;
         private List<IItem> _inStockItems;
         public GroceryShop( List<IItem> items )
         {
             _inStockItems = items;
         }
-        public void DefineDiscounts( List<IDiscount> discounts )
+        public void DefineDiscounts( List<ItemDiscount> discounts )
         {
             _definedDiscounts = discounts;
         }
@@ -29,15 +29,18 @@ namespace ShopLib
                 IItem item = _inStockItems.Find( x => x.ItemName == itemName );
                 if ( item == null )
                 {
-                    Console.WriteLine( $"Unfortunately we do not have { itemName }!" );
+                    Console.WriteLine( $"Unfortunately we do not have a { itemName }!" );
                 }
                 else
                 {
-                    total += item.ItemPrice;
-                    IDiscount discount = _definedDiscounts.Find( x => x.ItemsCategory == item.ItemCategory );
+                    ItemDiscount discount = _definedDiscounts.Find( x => x.ItemsCategory == item.ItemCategory );
                     if ( discount != null )
                     {
-                        total -= discount.Amount;
+                        total += (item.ItemPrice * (100 - discount.AmountPercentage)) / 100;
+                    }
+                    else
+                    {
+                        total += item.ItemPrice;
                     }
                 }
             }

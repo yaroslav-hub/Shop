@@ -15,17 +15,17 @@ namespace Shop
                 new BreadItem( 50 )
             };
             IShop myShop = new GroceryShop( items );
-            List<IDiscount> discounts = new()
+            List<ItemDiscount> discounts = new()
             {
-                new IDiscount
+                new ItemDiscount
                 {
                     ItemsCategory = "A",
-                    Amount = 20
+                    AmountPercentage = 33
                 },
-                new IDiscount
+                new ItemDiscount
                 {
                     ItemsCategory = "C",
-                    Amount = 15
+                    AmountPercentage = 15
                 }
             };
             myShop.DefineDiscounts( discounts );
