@@ -9,6 +9,7 @@ namespace ShopLib
     public interface IItem
     {
         string ItemName { get; }
-        int ItemPrice { get; }
+        string ItemCategory { get; }
+        int ItemPrice { get; set; }
     }
 }

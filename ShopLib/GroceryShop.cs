@@ -8,10 +8,15 @@ namespace ShopLib
 {
     public class GroceryShop : IShop
     {
+        private List<IDiscount> _definedDiscounts;
         private List<IItem> _inStockItems;
         public GroceryShop( List<IItem> items )
         {
             _inStockItems = items;
+        }
+        public void DefineDiscounts( List<IDiscount> discounts )
+        {
+            _definedDiscounts = discounts;
         }
         public int Calculate( string inputString )
         {
@@ -29,6 +34,11 @@ namespace ShopLib
                 else
                 {
                     total += item.ItemPrice;
+                    IDiscount discount = _definedDiscounts.Find( x => x.ItemsCategory == item.ItemCategory );
+                    if ( discount != null )
+                    {
+                        total -= discount.Amount;
+                    }
                 }
             }
 

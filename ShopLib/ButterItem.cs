@@ -9,6 +9,7 @@ namespace ShopLib
     public class ButterItem : IItem
     {
         public string ItemName => "butter";
+        public string ItemCategory => "A";
         public int ItemPrice { get; set; }
         public ButterItem( int price )
         {

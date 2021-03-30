@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ShopLib
 {
-    public interface IShop
+    public class IDiscount
     {
-        void DefineDiscounts( List<IDiscount> discounts );
-        int Calculate( string inputString );
+        public string ItemsCategory { get; set; }
+        public int Amount { get; set; }
     }
 }
