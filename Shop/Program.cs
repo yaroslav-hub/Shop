@@ -29,8 +29,11 @@ namespace Shop
                 }
             };
             myShop.DefineDiscounts( discounts );
-            int total = myShop.Calculate( "milk, BrEad, water, butter" );
-            Console.WriteLine( $"Your total price: { total } rubles." );
+
+            Console.WriteLine("Please, enter items: ");
+            string itemsList = Console.ReadLine();
+            int total = myShop.Calculate( itemsList );
+            Console.WriteLine( $"Total price: { total } rubles." );
         }
     }
 }
