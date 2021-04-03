@@ -8,8 +8,8 @@ namespace ShopLib
 {
     public interface IItem
     {
-        string ItemName { get; }
-        string ItemCategory { get; }
+        string ItemName { get; set; }
+        string ItemCategory { get; set; }
         int ItemPrice { get; set; }
     }
 }

@@ -10,9 +10,9 @@ namespace Shop
         {
             List<IItem> items = new()
             {
-                new MilkItem( 60 ),
-                new WaterItem( 20 ),
-                new BreadItem( 50 )
+                new DefineItem( "milk", "A", 60 ),
+                new DefineItem( "water", "A", 20 ),
+                new DefineItem( "bread", "B", 50 )
             };
             IShop myShop = new GroceryShop( items );
             List<ItemDiscount> discounts = new()
