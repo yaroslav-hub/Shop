@@ -8,7 +8,7 @@ namespace ShopLib
 {
     public interface IShop
     {
-        void DefineDiscounts( List<ItemDiscount> discounts );
-        int Calculate( string inputString );
+        void DefineDiscounts(List<ItemDiscount> discounts);
+        int Calculate(string[] itemsList);
     }
 }

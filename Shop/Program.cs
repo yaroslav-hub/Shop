@@ -10,11 +10,11 @@ namespace Shop
         {
             List<IItem> items = new()
             {
-                new DefineItem( "milk", "A", 60 ),
-                new DefineItem( "water", "A", 20 ),
-                new DefineItem( "bread", "B", 50 )
+                new DefineItem("milk", "A", 60),
+                new DefineItem("water", "A", 20),
+                new DefineItem("bread", "B", 50)
             };
-            IShop myShop = new GroceryShop( items );
+            IShop myShop = new GroceryShop(items);
             List<ItemDiscount> discounts = new()
             {
                 new ItemDiscount
@@ -28,12 +28,13 @@ namespace Shop
                     AmountPercentage = 15
                 }
             };
-            myShop.DefineDiscounts( discounts );
+            myShop.DefineDiscounts(discounts);
 
             Console.WriteLine("Please, enter items: ");
-            string itemsList = Console.ReadLine();
-            int total = myShop.Calculate( itemsList );
-            Console.WriteLine( $"Total price: { total } rubles." );
+            string inputString = Console.ReadLine().ToLower();
+            string[] itemsList = inputString.Split(',');
+            int total = myShop.Calculate(itemsList);
+            Console.WriteLine($"Total price: { total } rubles.");
         }
     }
 }

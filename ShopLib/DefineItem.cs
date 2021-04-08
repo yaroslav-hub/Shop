@@ -11,7 +11,7 @@ namespace ShopLib
         public string ItemName { get; set; }
         public string ItemCategory { get; set; }
         public int ItemPrice { get; set; }
-        public DefineItem( string name, string category, int price )
+        public DefineItem(string name, string category, int price)
         {
             ItemName = name;
             ItemCategory = category;
